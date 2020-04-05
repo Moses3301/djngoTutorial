@@ -18,5 +18,6 @@ from django.urls import path
 from djangonautic import view
 
 urlpatterns = [
-    path('', view.home)
+    path('', view.home),
+    path('admin/', admin.site.urls)
 ]
