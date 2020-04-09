@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
+    <link rel="stylesheet" href="{%static 'stayle.css'%}">
+  </head>
+  <body>
+    <div class="warapper">
+      <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logo.jpg'%}" alt="logo"></a></h1>
+      {%block content%}
+      {%endblock%}
+    </div>
+  </body>
+</html>

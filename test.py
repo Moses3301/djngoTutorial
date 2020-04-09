@@ -1,6 +1,11 @@
-def fib(arg):
-    if arg<=2:
-        return 1
-    return fib(arg-1)+fib(arg-2)
+def combinator(k, u):
+    l = len(k)
+    for i in range(l ** u):
+        s = ""
+        for j in range(u):
+            i, index = divmod(i,l)
+            s += k[index]
+        yield s
 
-print(fib(10))
+for n in range(1,6):
+    for i in combinator("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890",n): print(i)
