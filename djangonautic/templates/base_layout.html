@@ -10,6 +10,25 @@
   <body>
     <div class="warapper">
       <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logo.jpg'%}" alt="logo"></a></h1>
+      <nav>
+        <ul>
+          {% if user.is_authenticated %}
+          <li>
+            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+              {%csrf_token%}
+              <button type="submit" name="logout">Log Out</button>
+            </form>
+          </li>
+          {%else%}
+          <li>
+            <a href="{% url 'accounts:login' %}">Login</a>
+          </li>
+          <li>
+            <a href="{% url 'accounts:signup' %}">Signup</a>
+          </li>
+          {%endif%}
+        </ul>
+      </nav>
       {%block content%}
       {%endblock%}
     </div>
